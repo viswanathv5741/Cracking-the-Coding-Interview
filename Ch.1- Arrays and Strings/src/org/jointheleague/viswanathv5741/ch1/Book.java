@@ -10,6 +10,18 @@ public class Book {
 		this.author = author; 
 		this.edition = edition;
 	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+	
+	public Integer getEdition() {
+		return edition;
+	}
 
 	@Override
 	public int hashCode() {

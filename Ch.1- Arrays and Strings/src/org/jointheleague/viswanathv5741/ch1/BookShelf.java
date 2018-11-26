@@ -9,11 +9,39 @@ public class BookShelf {
 	
 	//private List<Book> books = new ArrayList<Book>();
 	private Map<Book, Integer> books = new HashMap<Book, Integer>();
+	private List<Book> bookList = new ArrayList<Book>();
 	
-	public BookShelf(Book book) {
-		for (int i=0; i<books.keySet().size(); i++) {
+	public BookShelf() {
+			
+	}
+	
+	public void addBook(Book book) {
+		int amount;
+		if (books.containsKey(book)) {
+			amount = books.get(book) + 1;
+			books.put(book, amount);
 		}
-		books.put(book, books.size()+1);
+		else {
+			books.put(book, 1);
+		}
+		bookList.add(book);
+	}
+	
+	public List<Book> getBooks(){
+		ArrayList<Book> copyBooks = new ArrayList<Book>(bookList);
+		return copyBooks;
+	}
+	
+	public boolean removeBook(Book book) {
+		if (books.containsKey(book)) {
+			books.put(book, books.get(book) - 1);
+			bookList.remove(book);
+			if (books.get(book) == 0) {
+				books.remove(book);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
