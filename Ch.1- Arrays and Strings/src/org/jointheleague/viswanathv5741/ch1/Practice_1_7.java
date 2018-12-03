@@ -37,6 +37,8 @@ public class Practice_1_7 {
 			}
 		}
 		
+		// (i,j) --> (j,n-1-i) --> (n-1-i,n-1-j) --> (n-1-j, i) --> (i,j) --> temp
+		
 		for (int i=0; i<m.length; i++) {
 			for (int j=0; j<m.length; j++) {
 				System.out.print(m[i][j] + " ");
