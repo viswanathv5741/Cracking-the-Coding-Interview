@@ -61,14 +61,16 @@ public class LinkedListTest {
 		LinkedList<Integer> testList = new LinkedList<>();
 		Node<Integer> a = new Node<>(5);
 		testList.append(a);
-		Node<Integer> b = new Node<>(6);
-		testList.append(b);
-		Node<Integer> c = new Node<>(7);
-		testList.append(c);
-		testList.removeVal(6);
-		assertEquals(a, testList.getFirst());
-		assertEquals(c, testList.getLast());
-		assertEquals(a, testList.getLast().getPrevious());
-		assertEquals(c, testList.getFirst().getNext());
+//		Node<Integer> b = new Node<>(6);
+//		testList.append(b);
+//		Node<Integer> c = new Node<>(7);
+//		testList.append(c);
+		testList.removeVal(5);
+//		System.out.println(testList.getFirst().getValue());
+//		System.out.println(testList.getFirst().getNext().getValue());
+		assertEquals(null, testList.getFirst());
+		assertEquals(null, testList.getLast());
+		assertTrue(testList.isEmpty());
+//		assertEquals(null, testList.getFirst().getNext());
 	}
 }

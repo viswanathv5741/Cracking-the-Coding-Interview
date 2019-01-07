@@ -73,13 +73,41 @@ public class LinkedList<T> {
 	
 	public void removeVal(T val) {
 		Node<T> pos = first;
-		while (!pos.getValue().equals(val)) {
-			System.out.println(pos.getValue());
-			pos = pos.getNext();
+		if (!this.isEmpty()) {
+			while (pos != null && !pos.getValue().equals(val)) {
+				pos = pos.getNext();
+			}
+			if (pos == null) {
+				return;
+			}
+			else if (last == first) {
+//				first.setNext(null);
+//				last.setPrevious(null);
+				first = null;
+				last = null;
+			}
+			else if (pos == last) {
+				last = pos.getPrevious();
+				pos.setPrevious(null);
+				last.setNext(null);
+			}
+			else if (pos == first) {
+				first = pos.getNext();
+				pos.setNext(null);
+				first.setPrevious(null);
+			}
+			else {
+				Node<T> posUp = pos.getNext();
+				posUp.setPrevious(pos.getPrevious());
+				System.out.println(pos.getPrevious());
+				System.out.println("following element of the one being removed: " + posUp.getValue());
+				Node<T> posDown = pos.getPrevious();
+				posDown.setNext(pos.getNext());
+				System.out.println("previous element of the one being removed " + posDown.getValue());
+			}
+		
+			pos = null;
 		}
-		Node<T> posUp = pos.getNext();
-		posUp.setPrevious(pos.getPrevious());
-		pos = null;
 	}
 	
 	

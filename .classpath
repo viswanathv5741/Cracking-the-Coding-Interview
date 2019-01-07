@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Ch.1- Arrays and Strings/src"/>
+	<classpathentry kind="src" path="Ch.1- Arrays and Strings/test"/>
+	<classpathentry kind="src" path="Ch.2 - Linked Lists/src"/>
+	<classpathentry kind="src" path="Ch.2 - Linked Lists/test"/>
+	<classpathentry kind="output" path="Ch.1- Arrays and Strings/bin"/>
+</classpath>
