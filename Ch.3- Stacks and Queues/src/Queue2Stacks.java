@@ -8,15 +8,15 @@ public class Queue2Stacks<T> {
 		tail = new Stack<T>();
 	}
 	
-	public void add(Node<T> n) {
+	public void add(T n) {
 		tail.push(n);
 	}
 	
 	public T remove(){
 		if (head.isEmpty()) {
 			while (!tail.isEmpty()) {
-				Node<T> temp = new Node<T>(tail.pop());
-				head.push(temp);
+				//Node<T> temp = new Node<T>(tail.pop());
+				head.push(tail.pop());
 			}
 		}
 		return head.pop();
@@ -25,8 +25,8 @@ public class Queue2Stacks<T> {
 	public T peek() {
 		if (head.isEmpty()) {
 			while (!tail.isEmpty()) {
-				Node<T> temp = new Node<T>(tail.pop());
-				head.push(temp);
+				//Node<T> temp = new Node<T>(tail.pop());
+				head.push(tail.pop());
 			}
 		}
 		return head.peek();

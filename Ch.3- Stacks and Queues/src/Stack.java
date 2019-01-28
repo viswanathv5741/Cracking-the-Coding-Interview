@@ -2,6 +2,7 @@ import java.util.EmptyStackException;
 
 public class Stack<T> {
 	Node<T> first;
+	private int size;
 	
 	public Stack() {
 		
@@ -11,10 +12,11 @@ public class Stack<T> {
 		return first == null;
 	}
 	
-	public void push(Node<T> n) {
-		Node<T> newFirst = n;
+	public void push(T value) {
+		Node<T> newFirst = new Node<T>(value);
 		newFirst.setNext(first);
 		first  = newFirst;
+		size ++;
 	}
 	
 	public T pop(){
@@ -25,13 +27,23 @@ public class Stack<T> {
 		else {
 			T item = first.getValue();
 			first = first.getNext();
+			size --;
 			return item;
 		}
 	
 	}
 	
+	public int size() {
+		return size;
+	}
+	
 	public T peek() {
-		return first.getValue();
+		if (first != null) {
+			return first.getValue();
+		}
+		else {
+			throw new EmptyStackException();
+		}
 	}
 	
 

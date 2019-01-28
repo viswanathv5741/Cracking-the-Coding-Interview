@@ -15,10 +15,10 @@ public class StackTest {
 	public void testPush() {
 		Stack<Integer> nums = new Stack<>();
 		Node<Integer> a = new Node<>(1);
-		nums.push(a);
+		nums.push(1);
 		assertTrue(nums.first.equals(a));
 		Node<Integer> b = new Node<>(2);
-		nums.push(b);
+		nums.push(2);
 		assertTrue(nums.first.equals(b));
 	}
 	
@@ -26,10 +26,10 @@ public class StackTest {
 	public void testPop() {
 		Stack<Integer> nums = new Stack<>();
 		Node<Integer> a = new Node<>(1);
-		nums.push(a);
+		nums.push(1);
 		assertTrue(nums.first.equals(a));
 		Node<Integer> b = new Node<>(2);
-		nums.push(b);
+		nums.push(2);
 		assertEquals(b, nums.pop());
 	}
 	
@@ -37,10 +37,10 @@ public class StackTest {
 	public void testPeek() {
 		Stack<Integer> nums = new Stack<>();
 		Node<Integer> a = new Node<>(1);
-		nums.push(a);
+		nums.push(1);
 		assertTrue(nums.first.equals(a));
 		Node<Integer> b = new Node<>(2);
-		nums.push(b);
+		nums.push(2);
 		assertEquals(b.getValue(), nums.peek());
 		assertEquals(b, nums.first);
 	}

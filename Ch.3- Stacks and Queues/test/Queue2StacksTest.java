@@ -50,13 +50,13 @@ public class Queue2StacksTest {
 	public void testPeek() {
 		Queue2Stacks<Integer> nums = new Queue2Stacks<Integer>();
 		Node<Integer> n1 = new Node<Integer>(1);
-		nums.add(n1);
+		nums.add(1);
 		Node<Integer> n2 = new Node<Integer>(2);
-		nums.add(n2);
+		nums.add(2);
 		Node<Integer> n3 = new Node<Integer>(3);
-		nums.add(n3);
+		nums.add(3);
 		Node<Integer> n4 = new Node<Integer>(4);
-		nums.add(n4);
+		nums.add(4);
 		assertEquals(Integer.valueOf(1), nums.peek());
 	}
 }
