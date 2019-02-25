@@ -34,18 +34,37 @@ public class AdjacencyMatrix {
 		return predecessors;
 	}
 
-	public Queue<Integer> getPath(int source, int target) {
-		Queue<Integer> path = new LinkedList<>();
-		List<Integer> sources = getSuccessors(source);
-		List<Integer> targets = getPredecessors(target);
-		HashSet<Integer> marked = new HashSet<>();
-		for (int i = 0; i < sources.size(); i++) {
-			if (!marked.contains(sources.get(i))) {
-				path.add(sources.get(i));
+	public boolean getPath(int source, int target) {
+		LinkedList<Integer> pathf = new LinkedList<>();
+		LinkedList<Integer> pathb = new LinkedList<>();
+		HashSet<Integer> markedf = new HashSet<>();
+		HashSet<Integer> markedb = new HashSet<>();
+		boolean intersect = false;
+		pathf.add(source);
+		pathb.add(target);
+		while (!pathf.isEmpty()) {
+			int pos = pathf.removeFirst();
+			int end = pathb.removeFirst();
+			List<Integer> posChild = getSuccessors(pos);
+			List<Integer> endParent = getPredecessors(end);
+			for (int i = 0; i < posChild.size(); i++) {
+				if (!markedf.contains(posChild.get(i))) {
+					markedf.add(posChild.get(i));
+					pathf.add(posChild.get(i));
+				}
+				for (int j = 0; j < endParent.size(); j++) {
+					if (!markedb.contains(endParent.get(j))) {
+						markedb.add(endParent.get(j));
+						pathb.add(endParent.get(j));
+					}
+				}
+				HashSet<Integer> intersection = new HashSet<>(markedf);
+				intersection.retainAll(markedf);
+				if (!intersection.isEmpty()) {
+					return true;
+				}
 			}
-			
 		}
-		return path;
-
+		return intersect;
 	}
 }
